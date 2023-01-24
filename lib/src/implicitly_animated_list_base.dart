@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'src.dart';
 
-typedef AnimatedItemBuilder<W extends Widget, E> = W Function(
+typedef ImplicityAnimatedItemBuilder<W extends Widget, E> = W Function(
     BuildContext context, Animation<double> animation, E item, int i);
 
 typedef RemovedItemBuilder<W extends Widget, E> = W Function(
@@ -22,7 +22,7 @@ abstract class ImplicitlyAnimatedListBase<W extends Widget, E extends Object>
   /// Called, as needed, to build list item widgets.
   ///
   /// List items are only built when they're scrolled into view.
-  final AnimatedItemBuilder<W, E> itemBuilder;
+  final ImplicityAnimatedItemBuilder<W, E> itemBuilder;
 
   /// An optional builder when an item was removed from the list.
   ///
@@ -130,7 +130,7 @@ abstract class ImplicitlyAnimatedListBaseState<W extends Widget,
 
   @nonVirtual
   @protected
-  AnimatedItemBuilder<W, E> get itemBuilder => widget.itemBuilder;
+  ImplicityAnimatedItemBuilder<W, E> get itemBuilder => widget.itemBuilder;
   @nonVirtual
   @protected
   RemovedItemBuilder<W, E>? get removeItemBuilder => widget.removeItemBuilder;
